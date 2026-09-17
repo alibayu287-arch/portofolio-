@@ -1,0 +1,1034 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Portfolio. — Bayu - IT Support & Office Administration</title>
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+
+<!-- FontAwesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+
+<!-- Tailwind CDN -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    darkMode: 'class',
+    theme: {
+      extend: {
+        fontFamily: {
+          display: ['Poppins', 'sans-serif'],
+          body: ['Inter', 'sans-serif'],
+        },
+        colors: {
+          ink: '#111113',
+        },
+        animation: {
+          'float-slow': 'float 6s ease-in-out infinite',
+          'float-slow-delay': 'float 6s ease-in-out 2s infinite',
+        },
+        keyframes: {
+          float: {
+            '0%, 100%': { transform: 'translateY(0px)' },
+            '50%': { transform: 'translateY(-12px)' },
+          },
+        },
+      },
+    },
+  };
+</script>
+
+<style>
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', sans-serif;
+    background-color: #F9FAFB;
+  }
+  .dark body { background-color: #0B0B0D; }
+
+  .font-display { font-family: 'Poppins', sans-serif; }
+
+  /* Glassmorphism helper */
+  .glass {
+    background: rgba(255, 255, 255, 0.65);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+  }
+  .dark .glass {
+    background: rgba(24, 24, 27, 0.55);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .glass-strong {
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+  }
+  .dark .glass-strong {
+    background: rgba(24, 24, 27, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  /* Subtle background blobs */
+  .bg-blob {
+    position: absolute;
+    border-radius: 9999px;
+    filter: blur(80px);
+    z-index: -1;
+    opacity: 0.5;
+  }
+
+  /* Dynamic role text fade */
+  .role-word {
+    animation: fadeSwap 6s infinite;
+    opacity: 0;
+  }
+  .role-word:nth-child(1) { animation-delay: 0s; }
+  .role-word:nth-child(2) { animation-delay: 2s; }
+  .role-word:nth-child(3) { animation-delay: 4s; }
+  @keyframes fadeSwap {
+    0% { opacity: 0; transform: translateY(6px); }
+    5% { opacity: 1; transform: translateY(0); }
+    30% { opacity: 1; transform: translateY(0); }
+    35% { opacity: 0; transform: translateY(-6px); }
+    100% { opacity: 0; }
+  }
+
+  ::-webkit-scrollbar { width: 8px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: #D1D5DB; border-radius: 9999px; }
+  .dark ::-webkit-scrollbar-thumb { background: #3f3f46; }
+
+  :focus-visible {
+    outline: 2px solid #6366F1;
+    outline-offset: 3px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, .animate-float-slow, .animate-float-slow-delay, .role-word {
+      animation: none !important;
+      transition: none !important;
+    }
+  }
+</style>
+</head>
+
+<body class="text-ink dark:text-gray-100 antialiased transition-colors duration-300 relative overflow-x-hidden">
+
+  <!-- Decorative background blobs -->
+  <div class="bg-blob w-[420px] h-[420px] bg-indigo-200 dark:bg-indigo-900 top-[-100px] left-[-120px]"></div>
+  <div class="bg-blob w-[380px] h-[380px] bg-amber-100 dark:bg-amber-900/40 top-[200px] right-[-140px]"></div>
+  <div class="bg-blob w-[300px] h-[300px] bg-rose-100 dark:bg-rose-900/30 bottom-[-80px] left-[10%]"></div>
+
+  <!-- ============ FLOATING NAVBAR ============ -->
+  <header class="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[94%] max-w-4xl">
+    <nav class="glass-strong rounded-full shadow-lg shadow-black/5 px-5 sm:px-6 py-3 flex items-center justify-between">
+      <a href="#home" class="font-display font-bold text-sm sm:text-base tracking-tight">
+        PORTFOLIO<span class="text-indigo-500">.</span>
+      </a>
+
+      <ul class="hidden md:flex items-center gap-6 text-sm font-medium text-gray-600 dark:text-gray-300">
+        <li><a href="#home" class="hover:text-ink dark:hover:text-white transition-colors">Home</a></li>
+        <li><a href="#about" class="hover:text-ink dark:hover:text-white transition-colors">About</a></li>
+        <li><a href="#skills" class="hover:text-ink dark:hover:text-white transition-colors">Skills</a></li>
+        <li><a href="#projects" class="hover:text-ink dark:hover:text-white transition-colors">Projects</a></li>
+        <li><a href="#certificates" class="hover:text-ink dark:hover:text-white transition-colors">Certificates</a></li>
+        <li><a href="#contact" class="hover:text-ink dark:hover:text-white transition-colors">Contact</a></li>
+      </ul>
+
+      <div class="flex items-center gap-2">
+        <button
+          id="theme-toggle"
+          aria-label="Ubah tema terang/gelap"
+          class="w-9 h-9 rounded-full flex items-center justify-center bg-white/70 dark:bg-white/10 border border-white/60 dark:border-white/10 hover:scale-105 transition-transform"
+        >
+          <i class="fa-solid fa-sun text-amber-500 text-sm dark:hidden"></i>
+          <i class="fa-solid fa-moon text-indigo-300 text-sm hidden dark:inline"></i>
+        </button>
+
+        <button id="mobile-menu-btn" aria-label="Buka menu" class="md:hidden w-9 h-9 rounded-full flex items-center justify-center bg-white/70 dark:bg-white/10 border border-white/60 dark:border-white/10">
+          <i class="fa-solid fa-bars text-sm"></i>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Mobile dropdown -->
+    <div id="mobile-menu" class="hidden md:hidden glass-strong mt-2 rounded-3xl shadow-lg px-6 py-4">
+      <ul class="flex flex-col gap-4 text-sm font-medium text-gray-600 dark:text-gray-300">
+        <li><a href="#home" class="mobile-link block">Home</a></li>
+        <li><a href="#about" class="mobile-link block">About</a></li>
+        <li><a href="#skills" class="mobile-link block">Skills</a></li>
+        <li><a href="#projects" class="mobile-link block">Projects</a></li>
+        <li><a href="#certificates" class="mobile-link block">Certificates</a></li>
+        <li><a href="#contact" class="mobile-link block">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- ============ HERO SECTION ============ -->
+  <section id="home" class="min-h-screen flex items-center pt-32 pb-16 px-6 sm:px-10 lg:px-16">
+    <div class="max-w-6xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+
+      <!-- LEFT COLUMN -->
+      <div class="flex flex-col gap-6 order-2 lg:order-1 text-center lg:text-left items-center lg:items-start">
+        <div>
+          <h1 class="font-display font-bold text-4xl sm:text-5xl xl:text-6xl leading-tight">
+            Hi, I'm Bayu
+          </h1>
+          <div class="relative h-12 sm:h-14 mt-1 font-display font-semibold text-3xl sm:text-4xl xl:text-5xl text-indigo-500">
+            <span class="role-word absolute inset-0 lg:text-left">IT Support</span>
+            <span class="role-word absolute inset-0 lg:text-left">Web &amp; Coding</span>
+            <span class="role-word absolute inset-0 lg:text-left">Office Administration</span>
+          </div>
+        </div>
+
+        <p class="text-gray-600 dark:text-gray-300 max-w-md leading-relaxed">
+          Lulusan SMK Teknik Komputer dan Jaringan dengan kemampuan di bidang IT Support, administrasi, pengolahan data, serta web development dasar. Saya senang mempelajari teknologi baru dan menggunakannya untuk menyelesaikan pekerjaan secara rapi, efektif, dan terstruktur.
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
+          <a href="#skills" class="inline-flex items-center justify-center gap-2 bg-ink dark:bg-white text-white dark:text-ink font-medium px-6 py-3 rounded-full shadow-lg shadow-black/10 hover:opacity-90 transition-opacity">
+            Explore Skills <i class="fa-solid fa-arrow-right text-xs"></i>
+          </a>
+          <a href="Bayu Alimul Ihsan_CV.pdf" download class="inline-flex items-center justify-center gap-2 bg-white/70 dark:bg-white/5 border border-gray-200 dark:border-white/10 font-medium px-6 py-3 rounded-full backdrop-blur-md hover:bg-white transition-colors dark:hover:bg-white/10">
+            Download CV <i class="fa-solid fa-download text-xs"></i>
+          </a>
+        </div>
+
+        <div class="flex items-center gap-4 pt-4">
+          <a 
+            href="https://www.instagram.com/liitlee_b/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram"
+            class="w-10 h-10 rounded-full glass flex items-center justify-center shadow-sm hover:-translate-y-0.5 transition-transform"
+          >
+              <i class="fa-brands fa-instagram"></i>
+          </a>
+
+            <a 
+              href="https://wa.me/6283866549841"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="WhatsApp"
+              class="w-10 h-10 rounded-full glass flex items-center justify-center shadow-sm hover:-translate-y-0.5 transition-transform"
+            >
+              <i class="fa-brands fa-whatsapp"></i>
+            </a>          
+        </div>
+      </div>
+
+      <!-- RIGHT COLUMN -->
+      <div class="order-1 lg:order-2 relative flex justify-center items-center">
+        <div class="relative w-64 h-64 sm:w-80 sm:h-80 xl:w-96 xl:h-96">
+
+          <!-- Decorative ring -->
+          <div class="absolute inset-[-14px] rounded-full border border-indigo-200 dark:border-indigo-800/50"></div>
+
+          <!-- Profile photo -->
+          <img
+            src="assets/images/foto-profil.png"
+            alt="Foto profil"
+            class="w-full h-full object-cover rounded-full shadow-2xl shadow-indigo-200/60 dark:shadow-none ring-4 ring-white dark:ring-zinc-800"
+          />
+
+          <!-- Floating Badge 1: Experience -->
+          <div class="absolute -top-4 -left-8 sm:-left-12 glass rounded-2xl shadow-lg px-4 py-3 flex items-center gap-3 animate-float-slow">
+            <div class="w-9 h-9 rounded-full bg-indigo-500/10 flex items-center justify-center shrink-0">
+              <i class="fa-regular fa-clock text-indigo-500 text-sm"></i>
+            </div>
+            <div class="text-left">
+              <p class="text-xs font-semibold leading-tight">Fresh Graduate</p>
+              <p class="text-[11px] text-gray-500 dark:text-gray-400 leading-tight">Ready to Learn</p>
+            </div>
+          </div>
+
+          <!-- Floating Badge 2: Language -->
+          <div class="absolute top-1/2 -right-8 sm:-right-14 -translate-y-1/2 glass rounded-2xl shadow-lg px-4 py-3 flex items-center gap-3 animate-float-slow-delay">
+            <div class="w-9 h-9 rounded-full bg-amber-500/10 flex items-center justify-center shrink-0">
+              <i class="fa-solid fa-code text-amber-500 text-sm"></i>
+            </div>
+            <div class="text-left">
+              <p class="text-xs font-semibold leading-tight">HTML</p>
+              <p class="text-[11px] text-gray-500 dark:text-gray-400 leading-tight">Main Language</p>
+            </div>
+          </div>
+
+          <!-- Floating Badge 3: Role -->
+          <div class="absolute -bottom-4 left-4 sm:left-8 glass rounded-2xl shadow-lg px-4 py-3 flex items-center gap-3 animate-float-slow">
+            <div class="w-9 h-9 rounded-full bg-emerald-500/10 flex items-center justify-center shrink-0">
+              <i class="fa-solid fa-display text-emerald-500 text-sm"></i>
+            </div>
+            <div class="text-left">
+              <p class="text-xs font-semibold leading-tight">Junior</p>
+              <p class="text-[11px] text-gray-500 dark:text-gray-400 leading-tight">Web Developer</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============ ABOUT ============ -->
+  <section id="about" class="max-w-5xl mx-auto px-6 sm:px-10 lg:px-16 py-20">
+    <div class="glass rounded-3xl shadow-lg p-8 sm:p-12">
+      <p class="text-sm font-medium text-indigo-500 mb-2">About Me</p>
+      <h2 class="font-display font-bold text-2xl sm:text-3xl mb-4">BUILD, LEARN, GROW</h2>
+      <p class="text-gray-600 dark:text-gray-300 max-w-2xl leading-relaxed">
+        Saya adalah lulusan SMK Teknik Komputer dan Jaringan dengan latar belakang di bidang teknologi serta pengalaman dalam lingkungan kerja operasional dan retail. Seiring berkembangnya kemampuan saya, saya juga memperkuat keterampilan administrasi, pengolahan data, dan penggunaan Microsoft Office.
+        <br /><br />
+        Saya memiliki ketertarikan pada pekerjaan yang memadukan teknologi dan kebutuhan administratif, serta terus mengembangkan kemampuan web dan coding dasar. Saya terbiasa belajar melalui praktik, memperhatikan detail, dan berusaha menyelesaikan pekerjaan secara rapi dan terstruktur.
+        <br /><br />
+        Saat ini saya terbuka untuk berkembang di bidang Administration, Data Entry, maupun IT Support, sambil terus memperluas kemampuan digital saya.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ EXPERIENCE ============ -->
+  <section id="experience" class="max-w-5xl mx-auto px-6 sm:px-10 lg:px-16 py-8">
+    <h2 class="font-display font-bold text-2xl sm:text-3xl mb-8 text-center lg:text-left">Experience</h2>
+    <div class="grid sm:grid-cols-2 gap-6">
+      <div class="glass rounded-2xl shadow-lg p-6">
+        <p class="text-xs text-gray-500 dark:text-gray-400 mb-1">2026 — Sekarang</p>
+        <h3 class="font-semibold mb-2">Daily Worker — DC Jember</h3>
+        <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">Menangani operasional barang sesuai prosedur kerja, memastikan proses dilakukan dengan teliti, serta berkoordinasi dengan tim untuk menjaga kelancaran pekerjaan.</p>
+        <div class="mt-4 flex flex-wrap gap-2">
+          <span class="text-xs font-medium text-gray-500 dark:text-gray-400">#AttentionToDetail</span>
+          <span class="text-xs font-medium text-gray-500 dark:text-gray-400">#Teamwork</span>
+          <span class="text-xs font-medium text-gray-500 dark:text-gray-400">#Responsibility</span>
+        </div>
+      </div>
+      <div class="glass rounded-2xl shadow-lg p-6">
+        <p class="text-xs text-gray-500 dark:text-gray-400 mb-1">2025</p>
+        <h3 class="font-semibold mb-2">PKL — PT Indobismar</h3>
+        <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">Mendukung aktivitas operasional toko dan pekerjaan teknis dasar, termasuk instalasi sistem operasi dan checking hardware, serta pendataan stok menggunakan Excel. Turut terlibat dalam aktivitas pemasaran melalui e-commerce.</p>
+        <div class="mt-4 flex flex-wrap gap-2">
+          <span class="text-xs font-medium text-gray-500 dark:text-gray-400">#ITSupport</span>
+          <span class="text-xs font-medium text-gray-500 dark:text-gray-400">#Ecommerce</span>
+          <span class="text-xs font-medium text-gray-500 dark:text-gray-400">#Communication</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SKILLS ============ -->
+  <section id="skills" class="max-w-5xl mx-auto px-6 sm:px-10 lg:px-16 py-20">
+    <h2 class="font-display font-bold text-2xl sm:text-3xl mb-2 text-center lg:text-left">Skills</h2>
+    <p class="text-gray-600 dark:text-gray-300 mb-10 text-center lg:text-left max-w-xl mx-auto lg:mx-0">
+      Kompetensi teknis saya, dari jaringan dan perangkat keras hingga administrasi perkantoran dan multimedia kreatif.
+    </p>
+
+    <div class="grid sm:grid-cols-2 gap-6">
+
+      <!-- Networking -->
+      <div class="glass rounded-2xl shadow-lg p-6">
+        <div class="flex items-center gap-3 mb-5">
+          <div class="w-10 h-10 rounded-full bg-indigo-500/10 flex items-center justify-center shrink-0">
+            <i class="fa-solid fa-network-wired text-indigo-500 text-sm"></i>
+          </div>
+          <h3 class="font-display font-semibold">Networking</h3>
+        </div>
+        <ul class="space-y-3">
+          <li class="flex items-center gap-3 text-sm text-gray-600 dark:text-gray-300">
+            <i class="fa-solid fa-tower-broadcast text-indigo-400 text-xs w-4 text-center"></i>
+            <span>Router / Mikrotik</span>
+          </li>
+          <li class="flex items-center gap-3 text-sm text-gray-600 dark:text-gray-300">
+            <i class="fa-solid fa-ethernet text-indigo-400 text-xs w-4 text-center"></i>
+            <span>Kabeling (UTP/STP)</span>
+          </li>
+          <li class="flex items-center gap-3 text-sm text-gray-600 dark:text-gray-300">
+            <i class="fa-solid fa-diagram-project text-indigo-400 text-xs w-4 text-center"></i>
+            <span>Switch &amp; VLAN</span>
+          </li>
+          <li class="flex items-center gap-3 text-sm text-gray-600 dark:text-gray-300">
+            <i class="fa-solid fa-sitemap text-indigo-400 text-xs w-4 text-center"></i>
+            <span>IP Addressing &amp; Subnetting</span>
+          </li>
+          <li class="flex items-center gap-3 text-sm text-gray-600 dark:text-gray-300">
+            <i class="fa-solid fa-wifi text-indigo-400 text-xs w-4 text-center"></i>
+            <span>Wireless Network (Access Point)</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Hardware & IT Support -->
+      <div class="glass rounded-2xl shadow-lg p-6">
+        <div class="flex items-center gap-3 mb-5">
+          <div class="w-10 h-10 rounded-full bg-amber-500/10 flex items-center justify-center shrink-0">
+            <i class="fa-solid fa-screwdriver-wrench text-amber-500 text-sm"></i>
+          </div>
+          <h3 class="font-display font-semibold">Hardware &amp; IT Support</h3>
+        </div>
+        <ul class="space-y-3">
+          <li class="flex items-center gap-3 text-sm text-gray-600 dark:text-gray-300">
+            <i class="fa-solid fa-computer text-amber-400 text-xs w-4 text-center"></i>
+            <span>Troubleshooting Hardware</span>
+          </li>
+          <li class="flex items-center gap-3 text-sm text-gray-600 dark:text-gray-300">
+            <i class="fa-solid fa-compact-disc text-amber-400 text-xs w-4 text-center"></i>
+            <span>Instalasi OS</span>
+          </li>
+          <li class="flex items-center gap-3 text-sm text-gray-600 dark:text-gray-300">
+            <i class="fa-solid fa-download text-amber-400 text-xs w-4 text-center"></i>
+            <span>Instalasi Driver &amp; Software</span>
+          </li>
+          <li class="flex items-center gap-3 text-sm text-gray-600 dark:text-gray-300">
+            <i class="fa-solid fa-database text-amber-400 text-xs w-4 text-center"></i>
+            <span>Backup &amp; Restore Data</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Tools & Software -->
+      <div class="glass rounded-2xl shadow-lg p-6">
+        <div class="flex items-center gap-3 mb-5">
+          <div class="w-10 h-10 rounded-full bg-emerald-500/10 flex items-center justify-center shrink-0">
+            <i class="fa-solid fa-toolbox text-emerald-500 text-sm"></i>
+          </div>
+          <h3 class="font-display font-semibold">Tools &amp; Software</h3>
+        </div>
+        <ul class="space-y-3">
+          <li class="flex items-center gap-3 text-sm text-gray-600 dark:text-gray-300">
+            <i class="fa-solid fa-terminal text-emerald-400 text-xs w-4 text-center"></i>
+            <span>Winbox</span>
+          </li>
+          <li class="flex items-center gap-3 text-sm text-gray-600 dark:text-gray-300">
+            <i class="fa-solid fa-diagram-project text-emerald-400 text-xs w-4 text-center"></i>
+            <span>Cisco Packet Tracer</span>
+          </li>
+          <li class="flex items-center gap-3 text-sm text-gray-600 dark:text-gray-300">
+            <i class="fa-solid fa-server text-emerald-400 text-xs w-4 text-center"></i>
+            <span>VirtualBox / VMware</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Office Administration & Creative -->
+      <div class="glass rounded-2xl shadow-lg p-6">
+        <div class="flex items-center gap-3 mb-5">
+          <div class="w-10 h-10 rounded-full bg-rose-500/10 flex items-center justify-center shrink-0">
+            <i class="fa-solid fa-briefcase text-rose-500 text-sm"></i>
+          </div>
+          <h3 class="font-display font-semibold">Office Administration &amp; Creative</h3>
+        </div>
+        <ul class="grid grid-cols-2 gap-3">
+          <li class="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300">
+            <i class="fa-solid fa-file-word text-blue-500 text-xs w-4 text-center"></i>
+            <span>Word</span>
+          </li>
+          <li class="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300">
+            <i class="fa-solid fa-file-excel text-emerald-600 text-xs w-4 text-center"></i>
+            <span>Excel</span>
+          </li>
+          <li class="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300">
+            <i class="fa-solid fa-file-powerpoint text-orange-600 text-xs w-4 text-center"></i>
+            <span>PowerPoint</span>
+          </li>
+          <li class="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300">
+            <i class="fa-solid fa-image text-rose-600 text-xs w-4 text-center"></i>
+            <span>Photoshop</span>
+          </li>
+          <li class="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300">
+            <i class="fa-solid fa-palette text-cyan-500 text-xs w-4 text-center"></i>
+            <span>Canva</span>
+          </li>
+          <li class="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300">
+            <i class="fa-solid fa-clapperboard text-fuchsia-600 text-xs w-4 text-center"></i>
+            <span>CapCut</span>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============ PROJECTS ============ -->
+  <section id="projects" class="max-w-5xl mx-auto px-6 sm:px-10 lg:px-16 py-20">
+    <h2 class="font-display font-bold text-2xl sm:text-3xl mb-2 text-center lg:text-left">Projects</h2>
+    <p class="text-gray-600 dark:text-gray-300 mb-10 text-center lg:text-left max-w-xl mx-auto lg:mx-0">
+      Pilih kategori untuk melihat daftar proyek, lalu klik salah satu untuk membuka studi kasus lengkapnya.
+    </p>
+
+    <div id="category-grid" class="grid sm:grid-cols-3 gap-6">
+      <!-- Category cards are rendered here by JavaScript -->
+    </div>
+  </section>
+
+  <!-- ============ CERTIFICATES ============ -->
+  <section id="certificates" class="max-w-5xl mx-auto px-6 sm:px-10 lg:px-16 py-20">
+    <h2 class="font-display font-bold text-2xl sm:text-3xl mb-2 text-center lg:text-left">Sertifikat</h2>
+    <p class="text-gray-600 dark:text-gray-300 mb-10 text-center lg:text-left max-w-lg mx-auto lg:mx-0">
+      Bukti kompetensi dari pelatihan dan pengalaman kerja lapangan.
+    </p>
+
+    <div class="grid sm:grid-cols-2 gap-6">
+
+      <!-- Certificate Card 1 -->
+      <div class="glass rounded-2xl shadow-lg p-6 flex flex-col sm:flex-row gap-5 items-start">
+        <div class="w-full sm:w-32 h-24 rounded-xl overflow-hidden shrink-0 border border-white/60 dark:border-white/10">
+          <img src="assets/images/BNSP.png" alt="Pratinjau Sertifikat Junior Technical Support" class="w-full h-full object-cover" />
+        </div>
+        <div class="flex-1">
+          <p class="text-xs font-medium text-indigo-500 mb-1">Sertifikat BNSP</p>
+          <h3 class="font-semibold mb-1">Junior Technical Support</h3>
+          <p class="text-sm text-gray-600 dark:text-gray-300 mb-4">Diterbitkan oleh SMKN 8 Jember — Uji Kompetensi Keahlian (UKK)</p>
+          <button
+            class="view-cert-btn inline-flex items-center gap-2 text-sm font-medium px-4 py-2 rounded-full bg-ink dark:bg-white text-white dark:text-ink hover:opacity-90 transition-opacity"
+            data-img="BNSP.png"
+            data-title="Junior Technical Support — BNSP / SMKN 8 Jember (UKK)"
+          >
+            View Certificate <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Certificate Card 2 -->
+      <div class="glass rounded-2xl shadow-lg p-6 flex flex-col sm:flex-row gap-5 items-start">
+        <div class="w-full sm:w-32 h-24 rounded-xl overflow-hidden shrink-0 border border-white/60 dark:border-white/10">
+          <img src="assets/images/PKL.png" alt="Pratinjau Sertifikat PKL" class="w-full h-full object-cover" />
+        </div>
+        <div class="flex-1">
+          <p class="text-xs font-medium text-indigo-500 mb-1">Sertifikat PKL</p>
+          <h3 class="font-semibold mb-1">Praktik Kerja Lapangan</h3>
+          <p class="text-sm text-gray-600 dark:text-gray-300 mb-4">Diterbitkan oleh PT Indobismar</p>
+          <button
+            class="view-cert-btn inline-flex items-center gap-2 text-sm font-medium px-4 py-2 rounded-full bg-ink dark:bg-white text-white dark:text-ink hover:opacity-90 transition-opacity"
+            data-img="PKL.png"
+            data-title="Praktik Kerja Lapangan — PT Indobismar"
+          >
+            View Certificate <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Certificate Card 3 -->
+      <div class="glass rounded-2xl shadow-lg p-6 flex flex-col sm:flex-row gap-5 items-start">
+        <div class="w-full sm:w-32 h-24 rounded-xl overflow-hidden shrink-0 border border-white/60 dark:border-white/10">
+          <img src="assets/images/POA.png" alt="Pratinjau Sertifikat Practical Office Advance" class="w-full h-full object-cover" />
+        </div>
+        <div class="flex-1">
+          <p class="text-xs font-medium text-indigo-500 mb-1">Sertifikat Pelatihan</p>
+          <h3 class="font-semibold mb-1">Practical Office Advance</h3>
+          <p class="text-sm text-gray-600 dark:text-gray-300 mb-4">Diterbitkan oleh UPTD BLK Jember</p>
+          <button
+            class="view-cert-btn inline-flex items-center gap-2 text-sm font-medium px-4 py-2 rounded-full bg-ink dark:bg-white text-white dark:text-ink hover:opacity-90 transition-opacity"
+            data-img="POA.png"
+            data-title="Practical Office Advance — UPTD BLK Jember"
+          >
+            View Certificate <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Certificate Card 4 -->
+      <div class="glass rounded-2xl shadow-lg p-6 flex flex-col sm:flex-row gap-5 items-start">
+        <div class="w-full sm:w-32 h-24 rounded-xl overflow-hidden shrink-0 border border-white/60 dark:border-white/10">
+          <img src="assets/images/UKK.png" alt="Pratinjau Sertifikat UKK Networking" class="w-full h-full object-cover" />
+        </div>
+        <div class="flex-1">
+          <p class="text-xs font-medium text-indigo-500 mb-1">Sertifikat UKK</p>
+          <h3 class="font-semibold mb-1">UKK Networking / Support</h3>
+          <p class="text-sm text-gray-600 dark:text-gray-300 mb-4">Diterbitkan oleh PT Telkom Jember</p>
+          <button
+            class="view-cert-btn inline-flex items-center gap-2 text-sm font-medium px-4 py-2 rounded-full bg-ink dark:bg-white text-white dark:text-ink hover:opacity-90 transition-opacity"
+            data-img="UKK.png"
+            data-title="UKK Networking / Support — PT Telkom Jember"
+          >
+            View Certificate <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+          </button>
+        </div>
+      </div>
+
+            <!-- Certificate Card  5-->
+      <div class="glass rounded-2xl shadow-lg p-6 flex flex-col sm:flex-row gap-5 items-start">
+        <div class="w-full sm:w-32 h-24 rounded-xl overflow-hidden shrink-0 border border-white/60 dark:border-white/10">
+          <img src="assets/images/coming soon.jpg" alt="Pratinjau Sertifikat BNSP" class="w-full h-full object-cover" />
+        </div>
+        <div class="flex-1">
+          <p class="text-xs font-medium text-indigo-500 mb-1">Sertifikat BNSP</p>
+          <h3 class="font-semibold mb-1">Practical Office Advance</h3>
+          <p class="text-sm text-gray-600 dark:text-gray-300 mb-4">Diterbitkan oleh LSP BPVP Banyuwangi</p>
+          <button
+            class="view-cert-btn inline-flex items-center gap-2 text-sm font-medium px-4 py-2 rounded-full bg-ink dark:bg-white text-white dark:text-ink hover:opacity-90 transition-opacity"
+            data-img="coming soon.jpg"
+            data-title="Practical Office Advance — BPVP Banyuwangi"
+          >
+            Coming Soon <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+          </button>
+        </div>
+      </div>
+
+
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section id="contact" class="max-w-4xl mx-auto px-6 sm:px-10 lg:px-16 py-20">
+    <div class="glass rounded-3xl shadow-lg p-8 sm:p-12 text-center">
+      <h2 class="font-display font-bold text-2xl sm:text-3xl mb-3">Let's Connect!</h2>
+
+      <p class="text-gray-600 dark:text-gray-300 mb-6 max-w-md mx-auto">
+        Punya pertanyaan atau ingin berkolaborasi? Jangan ragu untuk menghubungi saya.
+      </p>
+
+      <a 
+        href="https://mail.google.com/mail/?view=cm&fs=1&to=alibayu287@gmail.com"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center justify-center gap-2 bg-ink dark:bg-white text-white dark:text-ink font-medium px-6 py-3 rounded-full shadow-lg shadow-black/10 hover:opacity-90 transition-opacity"
+      >
+        Contact Me <i class="fa-solid fa-envelope text-xs"></i>
+      </a>
+    </div>
+    </section>
+
+  <footer class="text-center text-xs text-gray-400 dark:text-gray-500 pb-10">
+    © 2026 Bayu. All rights reserved.
+  </footer>
+
+  <!-- ============ PROJECT MODAL (Nested: Level 1 = sub-project list, Level 2 = case study detail) ============ -->
+  <div
+    id="project-modal"
+    class="fixed inset-0 z-[100] hidden items-center justify-center p-4 sm:p-8 bg-black/60 backdrop-blur-sm opacity-0 transition-opacity duration-300"
+  >
+    <div
+      id="project-modal-panel"
+      class="relative max-w-3xl w-full max-h-[85vh] overflow-y-auto glass-strong rounded-3xl shadow-2xl p-5 sm:p-8 scale-95 opacity-0 transition-all duration-300"
+    >
+      <button
+        id="project-modal-close"
+        aria-label="Tutup"
+        class="absolute -top-3 -right-3 w-10 h-10 rounded-full bg-white dark:bg-zinc-800 shadow-lg flex items-center justify-center hover:scale-105 transition-transform z-10"
+      >
+        <i class="fa-solid fa-xmark text-sm"></i>
+      </button>
+
+      <!-- LEVEL 1: Sub-project list -->
+      <div id="project-level-1">
+        <p id="project-level1-eyebrow" class="text-xs font-medium text-indigo-500 uppercase tracking-wide mb-1"></p>
+        <h3 id="project-level1-title" class="font-display font-bold text-xl sm:text-2xl mb-6 pr-8"></h3>
+        <div id="project-sublist" class="grid sm:grid-cols-2 gap-4"></div>
+      </div>
+
+      <!-- LEVEL 2: Case study detail -->
+      <div id="project-level-2" class="hidden">
+        <button id="project-back-btn" class="inline-flex items-center gap-2 text-sm font-medium text-indigo-500 hover:text-indigo-600 mb-4">
+          <i class="fa-solid fa-arrow-left text-xs"></i> Kembali
+        </button>
+        <h4 id="project-detail-title" class="font-display font-bold text-lg mb-4 pr-8"></h4>
+        <p class="text-xs font-semibold text-indigo-500 uppercase tracking-wide mb-1">Bagian yang Dibuat</p>
+        <p id="project-detail-made" class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed mb-4"></p>
+        <p class="text-xs font-semibold text-indigo-500 uppercase tracking-wide mb-2">Kemampuan yang Ditunjukkan</p>
+        <ul id="project-detail-skills" class="space-y-1.5 mb-6"></ul>
+
+        <p class="text-xs font-semibold text-indigo-500 uppercase tracking-wide mb-3">Galeri Aset &amp; Berkas Asli</p>
+        <div id="project-detail-gallery" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ CERTIFICATE MODAL ============ -->
+  <div
+    id="cert-modal"
+    class="fixed inset-0 z-[100] hidden items-center justify-center p-4 sm:p-8 bg-black/60 backdrop-blur-sm opacity-0 transition-opacity duration-300"
+  >
+    <div
+      id="cert-modal-panel"
+      class="relative max-w-3xl w-full glass-strong rounded-3xl shadow-2xl p-4 sm:p-6 scale-95 opacity-0 transition-all duration-300"
+    >
+      <button
+        id="cert-modal-close"
+        aria-label="Tutup"
+        class="absolute -top-3 -right-3 w-10 h-10 rounded-full bg-white dark:bg-zinc-800 shadow-lg flex items-center justify-center hover:scale-105 transition-transform"
+      >
+        <i class="fa-solid fa-xmark text-sm"></i>
+      </button>
+      <p id="cert-modal-title" class="font-display font-semibold text-sm sm:text-base mb-3 pr-6"></p>
+      <div class="rounded-2xl overflow-hidden bg-black/5 dark:bg-white/5">
+        <img id="cert-modal-img" src="" alt="Sertifikat" class="w-full max-h-[70vh] object-contain" />
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // ============ Theme toggle with system preference fallback ============
+    const root = document.documentElement;
+    const themeToggle = document.getElementById('theme-toggle');
+    const stored = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+    if (stored === 'dark' || (!stored && prefersDark)) {
+      root.classList.add('dark');
+    }
+
+    themeToggle.addEventListener('click', () => {
+      root.classList.toggle('dark');
+      localStorage.setItem('theme', root.classList.contains('dark') ? 'dark' : 'light');
+    });
+
+    // ============ Mobile menu toggle ============
+    const menuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    menuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+    document.querySelectorAll('.mobile-link').forEach(link => {
+      link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+    });
+
+    // ============ PROJECT DATA (single source of truth) ============
+    const projectsData = [
+      {
+        category: 'office',
+        label: 'Office Administration',
+        icon: 'fa-solid fa-briefcase',
+        cover: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200&auto=format&fit=crop',
+        projects: [
+          {
+            id: 'office-excel',
+            title: 'Advanced Data Processing & Analytics (Excel)',
+            thumb: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=600&auto=format&fit=crop',
+            made: 'Mengerjakan rangkaian studi kasus Excel dari perhitungan dasar, fungsi logika bertingkat, pencarian data, pengolahan teks & tanggal, hingga manajemen data dan visualisasi dalam bentuk chart serta dashboard.',
+            skills: [
+              'Rumus & fungsi Excel dasar hingga lanjutan (IF/IFS, VLOOKUP/HLOOKUP, INDEX-MATCH)',
+              'Pengolahan data teks, tanggal, dan logika bertingkat',
+              'PivotTable, Chart, dan visualisasi data praktis',
+            ],
+            assets: [
+              { image: 'assets/images/Project 01.png', downloadLink: 'assets/documents/01 — Basic Formula & Data Calculation.xlsx', title: '01 | Basic Formula & Data Calculation' },
+              { image: 'assets/images/Project 02.png', downloadLink: 'assets/documents/02 — Logical Functions & Conditional Data.xlsx', title: '02 | Logical Functions & Conditional Data' },
+              { image: 'assets/images/Project 03.png', downloadLink: 'assets/documents/03 — Lookup & Data Retrieval.xlsx', title: '03 | Lookup & Data Retrieval' },
+              { image: 'assets/images/Project 04.png', downloadLink: 'assets/documents/04 — Text & Date Functions.xlsx', title: '04 | Text & Date Data Processing' },
+              { image: 'assets/images/Project 05.png', downloadLink: 'assets/documents/05 — Data Management & Analysis.xlsx', title: '05 | Data Management & Analysis' },
+              { image: 'assets/images/Project 06.png', downloadLink: 'assets/documents/06 — Data Visualization & Practical Case.xlsx', title: '06 | Data Visualization & Practical Case' },
+            ],
+          },
+          {
+            id: 'office-word',
+            title: 'Professional Document Automation (Word)',
+            thumb: 'https://images.unsplash.com/photo-1568667256549-094345857637?q=80&w=600&auto=format&fit=crop',
+            made: 'Menyusun dokumen administratif profesional mulai dari format & layout dasar, tabel data administratif, hingga otomasi Mail Merge untuk surat massal.',
+            skills: [
+              'Format & layout dokumen resmi',
+              'Penyusunan tabel data administratif',
+              'Otomasi Mail Merge (Word–Excel integration)',
+            ],
+            assets: [
+              { image: 'assets/images/Project 07.png', downloadLink: 'assets/documents/Document Formating & Layout.docx', title: '07 | Document Formatting & Layout' },
+              { image: 'assets/images/Project 08.png', downloadLink: 'assets/documents/Table & Administrative Data.docx', title: '08 | Table & Administrative Data' },
+              { image: 'assets/images/Project 09.png', downloadLink: 'assets/documents/Mail Merge & Professional Documents.docx', title: '09 | Mail Merge & Professional Documents' },
+            ],
+          },
+          {
+            id: 'office-ppt',
+            title: 'Interactive Presentation Design (PowerPoint)',
+            thumb: 'https://images.unsplash.com/photo-1590402494587-44b71d7772f6?q=80&w=600&auto=format&fit=crop',
+            made: 'Menyusun slide presentasi profil pribadi yang interaktif dengan desain dan tata letak yang menarik.',
+            skills: [
+              'Desain slide & layout profesional',
+              'Navigasi antar-slide interaktif',
+              'Microsoft PowerPoint tingkat lanjut',
+            ],
+            assets: [
+              { image: 'assets/images/Project 10.png', downloadLink: 'assets/documents/about me.pptx', title: '10 | Presentation Design & Layout' },
+            ],
+          },
+        ],
+      },
+      {
+        category: 'tech',
+        label: 'Tech & Coding',
+        icon: 'fa-solid fa-code',
+        cover: 'https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?q=80&w=1200&auto=format&fit=crop',
+        projects: [
+          {
+            id: 'tech-01',
+            title: 'Personal Portfolio Website',
+            thumb: 'https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?q=80&w=600&auto=format&fit=crop',
+            made: 'Membangun arsitektur kode web portofolio interaktif dengan fitur dark mode dan responsive design secara mandiri dari nol.',
+            skills: [
+              'Frontend Development',
+              'Tailwind CSS utility-first layout',
+              'Vanilla JavaScript DOM Manipulation',
+            ],
+            assets: [
+              { image: 'assets/images/Script.png', downloadLink: null, title: 'Tampilan Script Portofolio' },
+            ],
+          },
+        ],
+      },
+      {
+        category: 'creative',
+        label: 'Creative Multimedia',
+        icon: 'fa-solid fa-clapperboard',
+        cover: 'https://images.unsplash.com/photo-1626785774573-4b799315345d?q=80&w=1200&auto=format&fit=crop',
+        projects: [
+          {
+            id: 'creative-01',
+            title: 'Commercial Graphic Brand Assets (PKL)',
+            thumb: 'https://images.unsplash.com/photo-1626785774573-4b799315345d?q=80&w=600&auto=format&fit=crop',
+            made: 'Merancang materi promosi visual berupa poster komersial dan feed media sosial selama masa kerja praktik (PKL).',
+            skills: [
+              'Visual branding',
+              'Digital compositing dengan Photoshop',
+              'Rapid design dengan Canva',
+            ],
+            assets: [
+              { image: 'assets/images/Desain.jpeg', downloadLink: null, title: 'Aset Desain Grafis' },
+            ],
+          },
+          {
+            id: 'creative-02',
+            title: 'Cinematic Promotional Video Content',
+            thumb: 'https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?q=80&w=600&auto=format&fit=crop',
+            made: 'Melakukan editing video pendek kreatif, sinkronisasi audio ritmis, penyusunan transisi, serta color grading aset multimedia.',
+            skills: [
+              'Video production',
+              'Short-form content creation',
+              'Mobile editing mastery dengan CapCut',
+            ],
+            assets: [
+              { image: 'assets/images/video.png', downloadLink: null, title: 'Cuplikan Video Promosi' },
+            ],
+          },
+        ],
+      },
+    ];
+
+    // ============ Render 3 main category cards ============
+    const categoryGrid = document.getElementById('category-grid');
+
+    projectsData.forEach(cat => {
+      const card = document.createElement('div');
+      card.className = 'category-card cursor-pointer relative rounded-3xl overflow-hidden shadow-lg group aspect-video';
+      card.dataset.category = cat.category;
+      card.innerHTML = `
+        <img src="${cat.cover}" alt="${cat.label}" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/10"></div>
+        <div class="relative h-full flex flex-col justify-end p-6 text-white">
+          <div class="w-11 h-11 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center mb-3">
+            <i class="${cat.icon} text-base"></i>
+          </div>
+          <h3 class="font-display font-bold text-lg sm:text-xl mb-1">${cat.label}</h3>
+          <p class="text-xs text-white/80">${cat.projects.length} proyek &middot; klik untuk lihat detail</p>
+        </div>
+      `;
+      categoryGrid.appendChild(card);
+    });
+
+    // ============ Project Modal logic (nested levels) ============
+    const projectModal = document.getElementById('project-modal');
+    const projectModalPanel = document.getElementById('project-modal-panel');
+    const projectModalClose = document.getElementById('project-modal-close');
+
+    const level1View = document.getElementById('project-level-1');
+    const level1Eyebrow = document.getElementById('project-level1-eyebrow');
+    const level1Title = document.getElementById('project-level1-title');
+    const subList = document.getElementById('project-sublist');
+
+    const level2View = document.getElementById('project-level-2');
+    const backBtn = document.getElementById('project-back-btn');
+    const detailTitle = document.getElementById('project-detail-title');
+    const detailMade = document.getElementById('project-detail-made');
+    const detailSkills = document.getElementById('project-detail-skills');
+    const detailGallery = document.getElementById('project-detail-gallery');
+
+    let currentCategory = null;
+
+    function openProjectModal() {
+      projectModal.classList.remove('hidden');
+      projectModal.classList.add('flex');
+      document.body.style.overflow = 'hidden';
+      requestAnimationFrame(() => {
+        projectModal.classList.remove('opacity-0');
+        projectModalPanel.classList.remove('opacity-0', 'scale-95');
+        projectModalPanel.classList.add('opacity-100', 'scale-100');
+      });
+    }
+
+    function closeProjectModal() {
+      projectModal.classList.add('opacity-0');
+      projectModalPanel.classList.remove('opacity-100', 'scale-100');
+      projectModalPanel.classList.add('opacity-0', 'scale-95');
+      setTimeout(() => {
+        projectModal.classList.add('hidden');
+        projectModal.classList.remove('flex');
+        document.body.style.overflow = '';
+        // Reset to level 1 for the next time the modal opens
+        level2View.classList.add('hidden');
+        level1View.classList.remove('hidden');
+        currentCategory = null;
+      }, 300);
+    }
+
+    function showLevel1(categoryKey) {
+      const cat = projectsData.find(c => c.category === categoryKey);
+      if (!cat) return;
+      currentCategory = categoryKey;
+
+      level1Eyebrow.textContent = 'Kategori Proyek';
+      level1Title.textContent = cat.label;
+
+      subList.innerHTML = '';
+      cat.projects.forEach(p => {
+        const item = document.createElement('button');
+        item.type = 'button';
+        item.className = 'sub-project-card text-left glass rounded-2xl overflow-hidden shadow-sm hover:-translate-y-1 transition-transform';
+        item.dataset.projectId = p.id;
+        item.innerHTML = `
+          <div class="aspect-video overflow-hidden">
+            <img src="${p.thumb}" alt="${p.title}" class="w-full h-full object-cover" />
+          </div>
+          <div class="p-4">
+            <h4 class="text-sm font-semibold mb-1 leading-snug">${p.title}</h4>
+            <p class="text-xs text-gray-500 dark:text-gray-400 line-clamp-2">${p.made}</p>
+          </div>
+        `;
+        item.addEventListener('click', () => showLevel2(categoryKey, p.id));
+        subList.appendChild(item);
+      });
+
+      level2View.classList.add('hidden');
+      level1View.classList.remove('hidden');
+    }
+
+    function showLevel2(categoryKey, projectId) {
+      const cat = projectsData.find(c => c.category === categoryKey);
+      if (!cat) return;
+      const project = cat.projects.find(p => p.id === projectId);
+      if (!project) return;
+
+      detailTitle.textContent = project.title;
+      detailMade.textContent = project.made;
+
+      detailSkills.innerHTML = '';
+      project.skills.forEach(skill => {
+        const li = document.createElement('li');
+        li.className = 'flex items-start gap-2 text-sm text-gray-600 dark:text-gray-300';
+        li.innerHTML = `<i class="fa-solid fa-check text-emerald-500 text-xs mt-1"></i><span>${skill}</span>`;
+        detailSkills.appendChild(li);
+      });
+
+      // Render asset gallery: square preview image + centered title + "Download File Asli" button per asset
+      detailGallery.innerHTML = '';
+      (project.assets || []).forEach(asset => {
+        const card = document.createElement('div');
+        card.className = 'glass rounded-xl overflow-hidden shadow-sm border border-white/50 dark:border-white/10 flex flex-col text-center';
+
+        const downloadBtn = asset.downloadLink
+          ? `<a href="${asset.downloadLink}" download class="inline-flex items-center justify-center gap-2 text-xs font-semibold px-3 py-2 rounded-full bg-ink dark:bg-white text-white dark:text-ink hover:opacity-90 transition-opacity">
+               <i class="fas fa-download text-[11px]"></i> Download File Asli
+             </a>`
+          : '';
+
+        card.innerHTML = `
+          <div class="aspect-video overflow-hidden bg-black/5 dark:bg-white/5">
+            <img src="${asset.image}" alt="${asset.title}" class="w-full h-full object-cover" />
+          </div>
+          <div class="p-3 flex flex-col items-center gap-2">
+            <p class="text-xs font-medium text-gray-600 dark:text-gray-300" title="${asset.title}">${asset.title}</p>
+            ${downloadBtn}
+          </div>
+        `;
+        detailGallery.appendChild(card);
+      });
+
+      level1View.classList.add('hidden');
+      level2View.classList.remove('hidden');
+      projectModalPanel.scrollTop = 0;
+    }
+
+    // Category card clicks
+    categoryGrid.addEventListener('click', (e) => {
+      const card = e.target.closest('.category-card');
+      if (!card) return;
+      showLevel1(card.dataset.category);
+      openProjectModal();
+    });
+
+    // Back button: level 2 -> level 1
+    backBtn.addEventListener('click', () => {
+      if (currentCategory) showLevel1(currentCategory);
+    });
+
+    // Close button
+    projectModalClose.addEventListener('click', closeProjectModal);
+
+    // Click outside panel closes the modal
+    projectModal.addEventListener('click', (e) => {
+      if (e.target === projectModal) closeProjectModal();
+    });
+
+    // Escape key closes the modal
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !projectModal.classList.contains('hidden')) {
+        closeProjectModal();
+      }
+    });
+
+    // ============ Certificate Modal (Gambar Timbul / Pop-up) ============
+    const certModal = document.getElementById('cert-modal');
+    const certModalPanel = document.getElementById('cert-modal-panel');
+    const certModalImg = document.getElementById('cert-modal-img');
+    const certModalTitle = document.getElementById('cert-modal-title');
+    const certModalClose = document.getElementById('cert-modal-close');
+    const viewCertBtns = document.querySelectorAll('.view-cert-btn');
+
+    function openCertModal(imgSrc, title) {
+      certModalImg.src = imgSrc;
+      certModalImg.alt = title;
+      certModalTitle.textContent = title;
+
+      certModal.classList.remove('hidden');
+      certModal.classList.add('flex');
+      document.body.style.overflow = 'hidden';
+
+      requestAnimationFrame(() => {
+        certModal.classList.remove('opacity-0');
+        certModalPanel.classList.remove('opacity-0', 'scale-95');
+        certModalPanel.classList.add('opacity-100', 'scale-100');
+      });
+    }
+
+    function closeCertModal() {
+      certModal.classList.add('opacity-0');
+      certModalPanel.classList.remove('opacity-100', 'scale-100');
+      certModalPanel.classList.add('opacity-0', 'scale-95');
+
+      setTimeout(() => {
+        certModal.classList.add('hidden');
+        certModal.classList.remove('flex');
+        document.body.style.overflow = '';
+      }, 300);
+    }
+
+    viewCertBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        openCertModal(btn.dataset.img, btn.dataset.title);
+      });
+    });
+
+    certModalClose.addEventListener('click', closeCertModal);
+
+    certModal.addEventListener('click', (e) => {
+      if (e.target === certModal) closeCertModal();
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !certModal.classList.contains('hidden')) {
+        closeCertModal();
+      }
+    });
+  </script>
+
+</body>
+</html>
